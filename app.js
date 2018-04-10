@@ -2,9 +2,8 @@ var express = require('express'),
     path = require('path'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
-	errorHandaller=require('./Middlewares/ErrorHandaller_Mid');
-    app = express(),
-    Logger_H=require('./Helpers/LoggerHelper.js').Logger_H,
+    app = express();
+
 	app.use('/', express.static(__dirname + '/'));
 
 // uncomment after placing your favicon in /public
@@ -31,16 +30,13 @@ else{
 }
 
 process.on('uncaughtException', function (err) {
-  Logger_H.error(err);
   console.log(err);
   process.exit(1);
 })
 process.on('SIGINT', function() {
-	Logger_H.info("Server is Intentinally stopped.");
 	process.exit(0); 
 }); 
 process.on('exit', function(code){
 	console.log(code);
-	Logger_H.info("exit code is:"+code);
 });
 module.exports = app;

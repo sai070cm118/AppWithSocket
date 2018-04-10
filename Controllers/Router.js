@@ -11,7 +11,7 @@ module.exports = function(message,userId,callback) {
         case 'Profile':
             switch(message.method){
                 case 'GetMyProfile':
-                    Profile.getProfile(messageData,userId,callback);
+                    Profile.getMyProfile(messageData,userId,callback);
                     break;
                 default:
                     break;

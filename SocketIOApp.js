@@ -1,14 +1,13 @@
 
 var io = require('socket.io')();
-var Authentication_Mid=require('./Middlewares/Authentication_Mid.js');
 var uuid = require('uuid');
 var configuration=require('./Controllers/Configuration');
 
 var nJwt = require('njwt');
-const SecurityManager = require('gt.securitymanager');
+const SecurityManager = require('./Utilities/SecurityManager/index');
 
 //Authenticatie the user.
-var AsUser = io.of('/AsUser').use(Authentication_Mid);
+var AsUser = io.of('/AsUser');
 
 
 //============================================================================================//
@@ -17,6 +16,7 @@ var AsUser = io.of('/AsUser').use(Authentication_Mid);
 
 
 AsUser.on('connection', function (socket) {
+
 
 	SecurityManager.verifyToken(socket.request._query['Token'],function(err,verifiedJwt){
 		if(err){
@@ -29,9 +29,9 @@ AsUser.on('connection', function (socket) {
 	});
 
 	socket.on('disconnect',configuration.DisconnectRoute);
-	socket.on('CtoS',function(message){
-		message.data._id=socket._id;
-		configuration.ManageUserRoute(socket,io,message);
+	socket.on('CtoS',function(inMessage){
+		inMessage.data._id=socket._id;
+		configuration.ManageUserRoute(socket,io,inMessage);
 	});
 
 });

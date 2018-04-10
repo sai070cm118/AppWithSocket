@@ -6,17 +6,34 @@ var Repository={
     add:function(token,callback){
         
     },
-    Update:function(token,callback){
+    update:function(token,callback){
 
     },
-    Delete:function(Id,callback){
-       
+    delete:function(Id,callback){
+        
     },
-    GetAll(callback){
+    getAll(callback){
 
     },
-    GetById(Id,callback){
+    getById(id,callback){
 
+        console.log(id);
+
+        Models.Profile
+        .where({_id: id})
+        .fetch({ withRelated: []})
+        .then(function (Profile) {
+            if (!Profile) {
+                callback({error: true, data: {}});
+            }
+            else {
+                callback({error: false, data: Profile.toJSON()});
+            }
+        })
+        .catch(function (err) {
+            console.log(err);
+            callback({error: true, data: {message: 'Unable to get profile.'}});
+        });
     }
 
 }
