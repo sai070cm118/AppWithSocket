@@ -10,8 +10,8 @@ module.exports = function(message,userId,callback) {
     switch(message.controller){
         case 'Profile':
             switch(message.method){
-                case 'GetAccount':
-                    Profile.getAccount(messageData,userId,callback);
+                case 'GetMyProfile':
+                    Profile.getProfile(messageData,userId,callback);
                     break;
                 default:
                     break;

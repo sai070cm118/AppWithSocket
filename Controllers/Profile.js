@@ -1,15 +1,15 @@
 
-const gtservice = require('gtservice');
+const _gtservice = require('../Service/index');
 
 
-function getAccount(message,userId,callback){
+function getProfile(message,userId,callback){
 
-    gtservice.AccountService.getById(userId,function(result){
+    _gtservice.AccountService.getById(userId,function(result){
         callback([{Config:[{Type:'Room',RoomId:userId}],Message:{Type:'GetAccount',data:result.data,error:result.error}}]);
     });
 
 }
 
 module.exports = {
-    getAccount:getAccount
+    getProfile:getProfile
 }

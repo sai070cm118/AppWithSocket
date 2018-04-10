@@ -1,7 +1,7 @@
 
 var Services={
 
-    HomeService: require('./HomeService')
+    ProfileService: require('./ProfileService')
 
 };
 

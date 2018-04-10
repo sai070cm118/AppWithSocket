@@ -2,7 +2,7 @@
 var Repositories={
 
     Models: require('./Models'),
-    HomeRepository: require('./HomeRepository')
+    ProfileRepository: require('./ProfileRepository')
 
 };
 
