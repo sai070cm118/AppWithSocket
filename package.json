@@ -1,5 +1,5 @@
 {
-  "name": "chitipata",
+  "name": "appwithsocket",
   "version": "1.0.0",
   "description": "About to handle the chiti patalu",
   "main": "./bin/www",
