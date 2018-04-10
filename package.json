@@ -1,0 +1,19 @@
+{
+  "name": "SocketConnection",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "description": "SocketConnection",
+  "author": {
+    "name": "SBLDSK014",
+    "email": ""
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "request": "^2.81.0"
+  }
+}
