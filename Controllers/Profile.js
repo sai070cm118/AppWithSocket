@@ -10,6 +10,15 @@ function getMyProfile(message,userId,callback){
 
 }
 
+function getMemberRequests(message,userId,callback){
+    
+    _gtservice.CGroupMemberRequestService.getMemeberRequests(userId,function(result){
+        callback([{Config:[{Type:'MySelf',RoomId:userId}],Message:{Type:'MemberRequests',data:result.data,error:result.error}}]);
+    });
+    
+}
+
 module.exports = {
-    getMyProfile:getMyProfile
+    getMyProfile:getMyProfile,
+    getMemberRequests:getMemberRequests
 }

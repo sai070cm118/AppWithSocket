@@ -1,5 +1,5 @@
 
-const Profile = require('./Profile');
+const controllers = require('./index');
 
 
 
@@ -11,7 +11,7 @@ module.exports = function(message,userId,callback) {
         case 'Profile':
             switch(message.method){
                 case 'GetMyProfile':
-                    Profile.getMyProfile(messageData,userId,callback);
+                    controllers.Profile.getMyProfile(messageData,userId,callback);
                     break;
                 default:
                     break;

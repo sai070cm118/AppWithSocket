@@ -1,11 +1,10 @@
 var request = require('request');
-var BaseApiUri = require('gtconfigurationmanager').getApiURI();
 
 var ProxyService={
 
 	GET:function(inURI,inJsonObj,getBack){
         
-		request({ method: 'GET', uri:BaseApiUri+inURI, json:inJsonObj }, function(err,response,body){
+		request({ method: 'GET', uri:inURI, json:inJsonObj }, function(err,response,body){
 			
 			if (!err && response.statusCode == 200) {
 				getBack(err,body);
@@ -19,7 +18,7 @@ var ProxyService={
 		});
 	},
 	POST:function(inURI,inJsonObj,getBack){
-		request({ method: 'POST', uri:BaseApiUri+inURI, json:inJsonObj }, function(err,response,body){
+		request({ method: 'POST', uri:inURI, json:inJsonObj }, function(err,response,body){
 			if (!err && response.statusCode == 200) {
 				getBack(err,body);
 			}
@@ -33,7 +32,7 @@ var ProxyService={
 	},
 	PUT:function(inURI,inJsonObj,getBack){
         
-		request({ method: 'PUT', uri:BaseApiUri+inURI, json:inJsonObj }, function(err,response,body){
+		request({ method: 'PUT', uri:inURI, json:inJsonObj }, function(err,response,body){
 			
 			if (!err && response.statusCode == 200) {
 				getBack(err,body);
@@ -48,7 +47,7 @@ var ProxyService={
 	},
 	DELETE:function(inURI,inJsonObj,getBack){
         
-		request({ method: 'DELETE', uri:BaseApiUri+inURI, json:inJsonObj }, function(err,response,body){
+		request({ method: 'DELETE', uri:inURI, json:inJsonObj }, function(err,response,body){
 			
 			if (!err && response.statusCode == 200) {
 				getBack(err,body);

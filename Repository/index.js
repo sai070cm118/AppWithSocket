@@ -2,8 +2,7 @@
 var Repositories={
 
     Models: require('./Models'),
-    ProfileRepository: require('./ProfileRespository')
-
+    CommonFeatures: require('./CommonFeatures')
 };
 
 module.exports=Repositories;

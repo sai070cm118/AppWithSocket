@@ -40,13 +40,15 @@ var Profile=bookshelf.Model.extend(
 );
 var Profiles=bookshelf.Collection.extend({model:Profile});
 
+
+
+
 var Models={
 
     //Account Models
     Profile:Profile,
     Profiles:Profiles,
 
-    //Mongo Models
     DbConfig:dbConfig,
     bookshelf:bookshelf
     
