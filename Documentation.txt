@@ -1,1 +1,1 @@
-Heroku logs : heroku logs -t --app chitipata
+Heroku logs : heroku logs -t --app appname
